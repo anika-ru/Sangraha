@@ -841,8 +841,18 @@
                             <p class="mb-6">Get all ingredients for your favorite recipes at the best prices.</p>
                             <div class="relative">
                                 
-                            <input id="recipeSearch" type="text" value="" placeholder="Type what do you need to prepare?" class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
-
+                            <input
+  id="recipeSearch"
+  type="text"
+  value=""
+  autocomplete="off"
+  name="not-email-or-username"
+  inputmode="search"
+  autocapitalize="off"
+  spellcheck="false"
+  placeholder="Type what do you need to prepare?"
+  class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+/>
                                 <button id="searchRecipeBtn" class="absolute right-2 top-2 bg-white text-green-500 p-3 rounded-full hover:bg-gray-100 transition">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -893,7 +903,19 @@
                                 <h1 class="text-3xl md:text-4xl font-bold mb-4">Smart shopping for smarter cooking</h1>
                                 <p class="mb-6">Get all ingredients for your favorite recipes at the best prices.</p>
                                 <div class="relative">
-                                    <input id="recipeSearch" type="text" value="${appState.currentRecipe ? appState.currentRecipe.name : ''}" placeholder="Type what do you need to prepare?" class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                                <input
+  id="recipeSearch"
+  type="text"
+  value=""
+  autocomplete="off"
+  name="not-email-or-username"
+  inputmode="search"
+  autocapitalize="off"
+  spellcheck="false"
+  placeholder="Type what do you need to prepare?"
+  class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+/>
+
                                     <button id="searchRecipeBtn" class="absolute right-2 top-2 bg-white text-green-500 p-3 rounded-full hover:bg-gray-100 transition">
                                         <i class="fas fa-search"></i>
                                     </button>
