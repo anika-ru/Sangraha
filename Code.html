@@ -70,13 +70,13 @@
 <body class="min-h-screen flex flex-col">
     <!-- Custom Modal for Alerts/Confirmations -->
     <div id="customModal" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50 hidden">
-        <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center border-2" id="customModalContent">
-            <p class="text-lg font-semibold mb-4" id="customModalMessage"></p>
-            <button onclick="closeCustomModal()" class="px-4 py-2 rounded-md font-semibold text-white transition duration-200" id="customModalCloseBtn">
-                OK
-            </button>
-        </div>
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center border-2" id="customModalContent">
+        <p class="text-lg font-semibold mb-4" id="customModalMessage"></p>
+        <button onclick="closeCustomModal()" class="px-4 py-2 rounded-md font-semibold text-white transition duration-200" id="customModalCloseBtn">
+            OK
+        </button>
     </div>
+</div>
 
     <!-- Main App Container -->
     <div id="app-root" class="flex-grow flex flex-col">
@@ -311,6 +311,41 @@
             navAlertsBtn, navProfileBtn, navAdminBtn, adminDashboard, adminOrdersList,
             generateAIButton, aiResultDiv;
 
+        // Function to show custom modal
+        // Made globally accessible
+        window.showCustomModal = function(message, type = 'info') {
+            const modal = document.getElementById('customModal');
+            const modalContent = document.getElementById('customModalContent');
+            const modalMessageElem = document.getElementById('customModalMessage');
+            const modalCloseBtn = document.getElementById('customModalCloseBtn');
+
+            if (!modal || !modalContent || !modalMessageElem || !modalCloseBtn) {
+                console.error("Custom modal elements not found!");
+                return;
+            }
+
+            modalMessageElem.textContent = message;
+            modalContent.className = `bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center border-2 ${
+                type === 'success' ? 'border-green-500' : type === 'error' ? 'border-red-500' : 'border-blue-500'
+            }`;
+            modalMessageElem.className = `text-lg font-semibold mb-4 ${
+                type === 'success' ? 'text-green-700' : type === 'error' ? 'text-red-700' : 'text-blue-700'
+            }`;
+            modalCloseBtn.className = `px-4 py-2 rounded-md font-semibold text-white transition duration-200 ${
+                type === 'success' ? 'bg-green-600 hover:bg-green-700' : type === 'error' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
+            }`;
+
+            modal.classList.remove('hidden');
+        }
+
+        // Function to close custom modal
+        // Made globally accessible
+        window.closeCustomModal = function() {
+            const modal = document.getElementById('customModal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        }
 
         // Function to get DOM elements after they are rendered
         function getDOMElements() {
@@ -335,7 +370,7 @@
             emptyState = document.getElementById('emptyState');
             ingredientsGrid = document.getElementById('ingredientsGrid');
             recipeNameElem = document.getElementById('recipeName');
-            backToSearch = document.getElementById('backToSearch');
+            backToSearch = document.getElementById('backToSearchBtn');
             makeAgainSection = document.getElementById('makeAgainSection');
             userGreeting = document.getElementById('userGreeting');
             userNameElem = document.getElementById('userName');
@@ -518,41 +553,6 @@
                 };
             });
         }
-
-        // Function to show custom modal
-        function showCustomModal(message, type = 'info') {
-            const modal = document.getElementById('customModal');
-            const modalContent = document.getElementById('customModalContent');
-            const modalMessageElem = document.getElementById('customModalMessage');
-            const modalCloseBtn = document.getElementById('customModalCloseBtn');
-
-            if (!modal || !modalContent || !modalMessageElem || !modalCloseBtn) {
-                console.error("Custom modal elements not found!");
-                return;
-            }
-
-            modalMessageElem.textContent = message;
-            modalContent.className = `bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center border-2 ${
-                type === 'success' ? 'border-green-500' : type === 'error' ? 'border-red-500' : 'border-blue-500'
-            }`;
-            modalMessageElem.className = `text-lg font-semibold mb-4 ${
-                type === 'success' ? 'text-green-700' : type === 'error' ? 'text-red-700' : 'text-blue-700'
-            }`;
-            modalCloseBtn.className = `px-4 py-2 rounded-md font-semibold text-white transition duration-200 ${
-                type === 'success' ? 'bg-green-600 hover:bg-green-700' : type === 'error' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
-            }`;
-
-            modal.classList.remove('hidden');
-        }
-
-        // Function to close custom modal
-        function closeCustomModal() {
-            const modal = document.getElementById('customModal');
-            if (modal) {
-                modal.classList.add('hidden');
-            }
-        }
-
 
         // Main render function to update the DOM based on current state
         function renderApp() {
@@ -840,7 +840,9 @@
                             <h1 class="text-3xl md:text-4xl font-bold mb-4">Smart shopping for smarter cooking</h1>
                             <p class="mb-6">Get all ingredients for your favorite recipes at the best prices.</p>
                             <div class="relative">
-                                <input id="recipeSearch" type="text" placeholder="Type what do you need to prepare?" class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                                
+                            <input id="recipeSearch" type="text" value="" placeholder="Type what do you need to prepare?" class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+
                                 <button id="searchRecipeBtn" class="absolute right-2 top-2 bg-white text-green-500 p-3 rounded-full hover:bg-gray-100 transition">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -904,7 +906,7 @@
                             <div class="bg-white rounded-xl p-4 shadow-sm">
                                 <div class="flex items-center mb-4">
                                     <div class="w-16 h-16 rounded-lg bg-green-50 flex items-center justify-center mr-4">
-                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d62-a8d1-a5d34dee0e07/image/bc1c653a-1441-4d62-a8d1-a5d34dee0e07.png" alt="Panipuri" class="w-full h-full rounded-lg object-cover">
+                                        <img src="https://tse4.mm.bing.net/th/id/OIP.tE3Q7pwFMJnrt9boDv0lNgHaE8?pid=Api&P=0&h=180">
                                     </div>
                                     <div>
                                         <h3 class="font-medium text-gray-800">Panipuri Kit</h3>
@@ -1180,10 +1182,9 @@
 
         // For logged-in section quick search buttons (if they exist)
         if (document.getElementById('makeAgainPanipuri')) document.getElementById('makeAgainPanipuri').onclick = () => handleQuickSearch('panipuri');
-        if (document.getElementById('quickSearchPanipuri2')) document.getElementById('quickSearchPanipuri2').onclick = () => handleQuickSearch('panipuri');
         if (document.getElementById('quickSearchBiryani2')) document.getElementById('quickSearchBiryani2').onclick = () => handleQuickSearch('biryani');
         if (document.getElementById('quickSearchPasta2')) document.getElementById('quickSearchPasta2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
-        if (document.getElementById('quickSearchDessert2')) document.getElementById('quickSearchDessert2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchDessert2')) document.getElementById('quickSearchDessert2').onclick = () => showQuickSearch('dessert');
 
 
         // Re-attach serving buttons
@@ -1320,34 +1321,35 @@
     }
 
     function showLoginForm() {
-        if (loginTab) {
-            loginTab.classList.add('border-green-500', 'text-green-600');
-            loginTab.classList.remove('text-gray-500');
-        }
-        if (signupTab) {
-            signupTab.classList.remove('border-green-500', 'text-green-600');
-            signupTab.classList.add('text-gray-500');
-        }
-        if (loginForm) loginForm.classList.remove('hidden');
-        if (signupForm) signupForm.classList.add('hidden');
-        currentPage = 'login'; // Update global state
-        renderApp(); // Re-render to ensure listeners are attached
+    if (loginTab) {
+        loginTab.classList.add('border-green-500', 'text-green-600');
+        loginTab.classList.remove('text-gray-500');
     }
+    if (signupTab) {
+        signupTab.classList.remove('border-green-500', 'text-green-600');
+        signupTab.classList.add('text-gray-500');
+    }
+    if (loginForm) loginForm.classList.remove('hidden');
+    if (signupForm) signupForm.classList.add('hidden');
+    currentPage = 'login'; // Update global state
+    // Do NOT call renderApp() here
+}
+
 
     function showSignupForm() {
-        if (signupTab) {
-            signupTab.classList.add('border-green-500', 'text-green-600');
-            signupTab.classList.remove('text-gray-500');
-        }
-        if (loginTab) {
-            loginTab.classList.remove('border-green-500', 'text-green-600');
-            loginTab.classList.add('text-gray-500');
-        }
-        if (signupForm) signupForm.classList.remove('hidden');
-        if (loginForm) loginForm.classList.add('hidden');
-        currentPage = 'register'; // Update global state
-        renderApp(); // Re-render to ensure listeners are attached
+    if (signupTab) {
+        signupTab.classList.add('border-green-500', 'text-green-600');
+        signupTab.classList.remove('text-gray-500');
     }
+    if (loginTab) {
+        loginTab.classList.remove('border-green-500', 'text-green-600');
+        loginTab.classList.add('text-gray-500');
+    }
+    if (signupForm) signupForm.classList.remove('hidden');
+    if (loginForm) loginForm.classList.add('hidden');
+    currentPage = 'register'; // Update global state
+    // Do NOT call renderApp() here
+}
 
     function toggleGpsInput(event) {
         if (manualAddressSection) {
@@ -1397,71 +1399,71 @@
     }
 
     async function handleLogin() {
-        const emailInput = document.getElementById('loginEmail');
-        const passwordInput = document.getElementById('loginPassword');
-        const email = emailInput ? emailInput.value : '';
-        const password = passwordInput ? password.value : '';
+    const emailInput = document.getElementById('loginEmail');
+    const passwordInput = document.getElementById('loginPassword');
+    const email = emailInput ? emailInput.value : '';
+    const password = passwordInput ? passwordInput.value : ''; // <-- FIXED HERE
 
-        if (!email || !password) {
-            showCustomModal("Please enter both email and password.", 'error');
-            return;
-        }
-
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-            userId = user.uid;
-            await fetchUserProfile(userId, db); // Fetch profile after successful login
-            hideAuthModal();
-            showCustomModal("Logged in successfully!", 'success');
-            navigateTo('home');
-        } catch (error) {
-            console.error("Login error:", error);
-            showCustomModal(`Login failed: ${error.message}`, 'error');
-        }
+    if (!email || !password) {
+        showCustomModal("Please enter both email and password.", 'error');
+        return;
     }
+
+         try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        userId = user.uid;
+        await fetchUserProfile(userId, db); // Fetch profile after successful login
+        hideAuthModal();
+        showCustomModal("Logged in successfully!", 'success');
+        navigateTo('home');
+    } catch (error) {
+        console.error("Login error:", error);
+        showCustomModal(`Login failed: ${error.message}`, 'error');
+    }
+}
 
     async function handleSignup() {
-        const nameInput = document.getElementById('signupName');
-        const emailInput = document.getElementById('signupEmail');
-        const passwordInput = document.getElementById('signupPassword');
-        const deliveryAddressInput = document.getElementById('deliveryAddressInput');
+    const nameInput = document.getElementById('signupName');
+    const emailInput = document.getElementById('signupEmail');
+    const passwordInput = document.getElementById('signupPassword');
+    const deliveryAddressInput = document.getElementById('deliveryAddressInput');
 
-        const name = nameInput ? nameInput.value : '';
-        const email = emailInput ? emailInput.value : '';
-        const password = passwordInput ? passwordInput.value : '';
-        let address = deliveryAddressInput ? deliveryAddressInput.value : '';
+    const name = nameInput ? nameInput.value : '';
+    const email = emailInput ? emailInput.value : '';
+    const password = passwordInput ? passwordInput.value : '';
+    let address = deliveryAddressInput ? deliveryAddressInput.value : '';
 
-        if (!name || !email || !password || (!appState.locationEnabled && !address)) {
-            showCustomModal("Please fill in all required fields (name, email, password, and delivery address).", 'error');
-            return;
-        }
+    if (!name || !email || !password || (!appState.locationEnabled && !address)) {
+        showCustomModal("Please fill in all required fields (name, email, password, and delivery address).", 'error');
+        return;
+    }
 
         if (appState.locationEnabled) {
-            address = appState.deliveryAddress; // Use GPS detected address
-        }
-
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-            userId = user.uid; // Set the global userId
-
-            const userDocRef = doc(db, `artifacts/${appId}/users/${userId}/profile/data`);
-            await setDoc(userDocRef, {
-                name,
-                email,
-                deliveryAddress: address,
-                createdAt: new Date(),
-            });
-            appState.currentUser = { name, email, address };
-            hideAuthModal();
-            showCustomModal("Account created successfully!", 'success');
-            navigateTo('home');
-        } catch (error) {
-            console.error("Signup error:", error);
-            showCustomModal(`Signup failed: ${error.message}`, 'error');
-        }
+        address = appState.deliveryAddress; // Use GPS detected address
     }
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        userId = user.uid; // Set the global userId
+
+        const userDocRef = doc(db, `artifacts/${appId}/users/${userId}/profile/data`);
+        await setDoc(userDocRef, {
+            name,
+            email,
+            deliveryAddress: address,
+            createdAt: new Date(),
+        });
+        appState.currentUser = { name, email, deliveryAddress: address }; // <-- FIXED KEY
+        hideAuthModal();
+        showCustomModal("Account created successfully!", 'success');
+        navigateTo('home');
+    } catch (error) {
+        console.error("Signup error:", error);
+        showCustomModal(`Signup failed: ${error.message}`, 'error');
+    }
+}
 
     async function handleLogout() {
         if (auth) {
@@ -1638,17 +1640,16 @@
 
     // --- Navigation Function ---
     function navigateTo(page) {
-        currentPage = page;
-        appState.currentIngredient = null; // Close any open product modal
-        appState.showCheckoutModal = false; // Hide checkout modal
-        appState.showLocationPopup = false; // Hide location popup
-        if (page === 'home') {
-            // Reset recipe search when going to home
-            appState.currentRecipe = null;
-            if (recipeSearch) recipeSearch.value = ''; // Clear search input
-        }
-        renderApp();
+    currentPage = page;
+    appState.currentIngredient = null;
+    appState.showCheckoutModal = false;
+    appState.showLocationPopup = false;
+    if (page === 'home') {
+        appState.currentRecipe = null; // <-- This ensures the search bar is empty
+        if (recipeSearch) recipeSearch.value = '';
     }
+    renderApp();
+}
 
     // --- Initialization ---
     window.onload = async () => {

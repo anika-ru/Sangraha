@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,3 +68,74 @@
   </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sangraha - Smart Recipe Kit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    /* Your existing styles here */
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- Your existing HTML content here -->
+
+  <!-- Add a button to generate AI content -->
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    <button
+      id="generateAI"
+      class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition"
+    >
+      Generate AI Content
+    </button>
+    <div
+      id="aiResult"
+      class="mt-4 p-4 bg-gray-100 rounded text-gray-800 min-h-[80px]"
+    >
+      <!-- AI response will appear here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to call your backend Gemini API endpoint
+    async function callGeminiAPI(prompt) {
+      try {
+        const response = await fetch('http://localhost:3000/api/gemini', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await response.json();
+        if (data.error) {
+          console.error('Gemini API error:', data.error);
+          return null;
+        }
+        return data.text;
+      } catch (err) {
+        console.error('Network error:', err);
+        return null;
+      }
+    }
+
+    // Event listener for the button
+    document.getElementById('generateAI').addEventListener('click', async () => {
+      const prompt = "Explain how AI works in a few words"; // You can customize or get from user input
+      const result = await callGeminiAPI(prompt);
+      const aiResultDiv = document.getElementById('aiResult');
+      if (result) {
+        aiResultDiv.textContent = result;
+      } else {
+        aiResultDiv.textContent = 'Failed to get AI response.';
+      }
+    });
+  </script>
+</body>
+</html>
+>>>>>>> 15e6a9b (Initial commit)
