@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sangraha - Smart Recipe Kit</title>
@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN (for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    <style> <!---->
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;1000;900&display=swap');
 
         :root {
             --primary: #10b981;
@@ -23,11 +23,11 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #5ee780 0%, #3b82f6 100%);
         }
 
         .gradient-text {
-            background: linear-gradient(90deg, #10b981, #3b82f6);
+            background: linear-gradient(90deg, #41b67b, #3b82f6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -141,7 +141,7 @@
         const recipesDatabase = {
             "panipuri": {
                 name: "Panipuri",
-                image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/031b6a91-2d3a-437a-8a6c-9cba3a1fbc19.png",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTud29i7MbJHDayz6JPGAre1chq4vKh8Yy4cjMwImKYx_T5yupX",
                 description: "Crispy hollow puris filled with spicy, tangy water and flavorful fillings",
                 baseServings: 100, // Base for 100 plates
                 profitPerPlate: 25,
@@ -150,12 +150,12 @@
                         id: "puri",
                         name: "Puri",
                         description: "Crispy hollow puris",
-                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d28-b644-4743b55ee0eb.png",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzlvzrbLC6GN9_77OaA_VT6SBNOHbC-Qqvjg&s",
                         quantityPerServing: 100, // 100 puris per 100 plates
                         brands: [
-                            { id: "puri1", name: "Haldiram's Ready-to-Fry Puri", weight: "200g (approx 50 puris)", price: 45, marketPrice: 60, rating: 4.5, reviews: 124, store: "Amazon", delivery: "2h", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/227f1b4c-10b1-4717-b22d-49869e9c0166.png" },
-                            { id: "puri2", name: "MTR Panipuri Puri", weight: "150g (approx 40 puris)", price: 35, marketPrice: 50, rating: 4.2, reviews: 78, store: "BigBasket", delivery: "1h", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f06447b9-e7b9-414d-aff2-4e07daafa567.png" },
-                            { id: "puri3", name: "Local Halwai Fresh Puri", weight: "250g (approx 60 puris)", price: 30, marketPrice: 40, rating: 4.7, reviews: 215, store: "Local Store", delivery: "30m", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/55fd7ea1-2365-45fd-b591-4b57bf89b081.png" }
+                            { id: "puri1", name: "Haldiram's Ready-to-Fry Puri", weight: "200g (approx 50 puris)", price: 45, marketPrice: 60, rating: 4.5, reviews: 124, store: "Amazon", delivery: "2h", image: " https://static.wixstatic.com/media/e532f3_5889001ce5e7485390d428545f61ae39~mv2.png/v1/fill/w_427,h_570,al_c,lg_1,q_85,enc_avif,quality_auto/e532f3_5889001ce5e7485390d428545f61ae39~mv2.png" },
+                            { id: "puri2", name: "MTR Panipuri Puri", weight: "150g (approx 40 puris)", price: 35, marketPrice: 50, rating: 4.2, reviews: 78, store: "BigBasket", delivery: "1h", image: "https://www.quicklly.com/upload_images/product/1745945880-deep-pani-puri-golgappa.jpg" },
+                            { id: "puri3", name: "Local Halwai Fresh Puri", weight: "250g (approx 60 puris)", price: 30, marketPrice: 40, rating: 4.7, reviews: 215, store: "Local Store", delivery: "30m", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTud29i7MbJHDayz6JPGAre1chq4vKh8Yy4cjMwImKYx_T5yupX" }
                         ]
                     },
                     {
@@ -165,7 +165,7 @@
                         image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/385bf525-adfa-4b86-a9f7-ae4be52863fb.png",
                         quantityPerServing: 0.5, // 0.5kg per 100 plates
                         brands: [
-                            { id: "onion1", name: "Organic Red Onions", weight: "1kg", price: 60, marketPrice: 80, rating: 4.3, reviews: 56, store: "BigBasket", delivery: "1h", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cfe6e2b2-09e9-481f-9539-99e409f4a5ca.png" },
+                            { id: "onion1", name: "Organic Red Onions", weight: "1kg", price: 60, marketPrice: 80, rating: 4.3, reviews: 56, store: "BigBasket", delivery: "1h", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPoVkhkpxaIIHta3ALBXTA46PYf8sKPxyVxg&s" },
                             { id: "onion2", name: "Fresh Local Onions", weight: "1kg", price: 40, marketPrice: 50, rating: 4.1, reviews: 32, store: "Local Vendor", delivery: "30m", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a239720c-40bf-406e-91df-d1470a3b39fb.png" }
                         ]
                     },
@@ -183,41 +183,20 @@
                         id: "tamarind",
                         name: "Tamarind",
                         description: "For making tangy water",
-                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/45c927f3-2bdb-4d5d-8a01-478f5f76d02a.png",
+                        image: "data:image/jpeg;base64,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",
                         quantityPerServing: 0.1, // 0.1kg per 100 plates
                         brands: [
-                            { id: "tamarind1", name: "24 Mantra Organic Tamarind", weight: "200g", price: 85, marketPrice: 110, rating: 4.6, reviews: 67, store: "Amazon", delivery: "2h", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d862db4d-0f9e-4727-a8b5-6fb791d6592c.png" },
-                            { id: "tamarind2", name: "Local Market Tamarind", weight: "250g", price: 50, marketPrice: 70, rating: 4.2, reviews: 23, store: "Local Store", delivery: "30m", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/49826417-cef4-408d-8185-f6f74ea0cbcf.png" }
-                        ]
-                    },
-                    {
-                        id: "aamchur",
-                        name: "Aamchur Powder",
-                        description: "Dried mango powder for tanginess",
-                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b1ca055-0002-48c8-b628-4780dccaf0be.png",
-                        quantityPerServing: 0.05, // 0.05kg per 100 plates
-                        brands: [
-                            { id: "aamchur1", name: "Everest Aamchur Powder", weight: "100g", price: 45, marketPrice: 60, rating: 4.4, reviews: 89, store: "Amazon", delivery: "2h", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4d835aa2-8d41-4685-85e6-7df3a95cba3d.png" }
-                        ]
-                    },
-                    {
-                        id: "salt",
-                        name: "Salt",
-                        description: "Essential seasoning",
-                        image: "https://placehold.co/100x100/AEC6CF/000000?text=Salt",
-                        quantityPerServing: 0.02, // 0.02kg per 100 plates
-                        brands: [
-                            { id: "salt1", name: "Tata Salt", weight: "1kg", price: 25, marketPrice: 30, rating: 4.8, reviews: 500, store: "Local Store", delivery: "30m", image: "https://placehold.co/100x100/AEC6CF/000000?text=Tata+Salt" }
+                            { id: "tamarind1", name: "24 Mantra Organic Tamarind", weight: "200g", price: 85, marketPrice: 110, rating: 4.6, reviews: 67, store: "Amazon", delivery: "2h", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXn72_QTV7IK5NRboJ6tpyJ8GFdA7jmPloLQ&s" }
                         ]
                     },
                     {
                         id: "coriander",
                         name: "Coriander Leaves",
                         description: "Fresh garnish",
-                        image: "https://placehold.co/100x100/AEC6CF/000000?text=Coriander",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ92YNiWnh8btCNvcSwG7WLobaLLOYxdOpVqA&s",
                         quantityPerServing: 0.01, // 0.01kg per 100 plates
                         brands: [
-                            { id: "coriander1", name: "Fresh Coriander", weight: "100g", price: 10, marketPrice: 15, rating: 4.5, reviews: 150, store: "Local Vendor", delivery: "30m", image: "https://placehold.co/100x100/AEC6CF/000000?text=Fresh+Coriander" }
+                            { id: "coriander1", name: "Fresh Coriander", weight: "100g", price: 10, marketPrice: 15, rating: 4.5, reviews: 150, store: "Local Vendor", delivery: "30m", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe9sPFq78_GI03cyOYOXGb9LusfHqYsvG09w&s" }
                         ]
                     }
                 ]
@@ -233,50 +212,50 @@
                         id: "rice",
                         name: "Basmati Rice",
                         description: "Long grain rice",
-                        image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15b30d3f-bcd9-4b12-a246-91d89f124d1b.png",
+                        image: "data:image/jpeg;base64,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",
                         quantityPerServing: 0.5, // 0.5kg per 4 plates
                         brands: [
-                            { id: "rice1", name: "India Gate Basmati Rice", weight: "1kg", price: 150, marketPrice: 180, rating: 4.7, reviews: 342, store: "BigBasket", delivery: "1h", image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fcbed799-e245-4056-9aa8-5127fac09dc2.png" }
+                            { id: "rice1", name: "India Gate Basmati Rice", weight: "1kg", price: 150, marketPrice: 180, rating: 4.7, reviews: 342, store: "BigBasket", delivery: "1h", image: "https://eu.dookan.com/cdn/shop/files/India_Gate_Extra_Long_Basmati_Rice_-_Excel_5kg_-500px.png?v=1716552716" }
                         ]
                     },
                     {
                         id: "chicken",
                         name: "Chicken",
                         description: "Fresh chicken pieces",
-                        image: "https://placehold.co/100x100/AEC6CF/000000?text=Chicken",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7DK_tG9_e2oji7FXums9DwNgXkqQZLg9T4Q&s",
                         quantityPerServing: 0.75, // 0.75kg per 4 plates
                         brands: [
-                            { id: "chicken1", name: "Fresh Chicken Cuts", weight: "1kg", price: 280, marketPrice: 350, rating: 4.6, reviews: 200, store: "Local Butcher", delivery: "1h", image: "https://placehold.co/100x100/AEC6CF/000000?text=Chicken" }
+                            { id: "chicken1", name: "Fresh Chicken Cuts", weight: "1kg", price: 280, marketPrice: 350, rating: 4.6, reviews: 200, store: "Local Butcher", delivery: "1h", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7DK_tG9_e2oji7FXums9DwNgXkqQZLg9T4Q&s" }
                         ]
                     },
                     {
                         id: "biryani_masala",
                         name: "Biryani Masala",
                         description: "Blend of spices for biryani",
-                        image: "https://placehold.co/100x100/AEC6CF/000000?text=Biryani+Masala",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhsinnSu3-lJfPWhigNjhHS5mcKVP9rLP38w&s",
                         quantityPerServing: 0.05, // 0.05kg per 4 plates
                         brands: [
-                            { id: "biryani_masala1", name: "MDH Biryani Masala", weight: "100g", price: 70, marketPrice: 90, rating: 4.4, reviews: 180, store: "Supermarket", delivery: "2h", image: "https://placehold.co/100x100/AEC6CF/000000?text=MDH+Biryani" }
+                            { id: "biryani_masala1", name: "MDH Biryani Masala", weight: "100g", price: 70, marketPrice: 90, rating: 4.4, reviews: 180, store: "Supermarket", delivery: "2h", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVpOZ46ETJdSE2qVwOUnuJVdVVxjNIUVnwhA&s" }
                         ]
                     },
                     {
                         id: "ginger_garlic_paste",
                         name: "Ginger Garlic Paste",
                         description: "Freshly ground paste",
-                        image: "https://placehold.co/100x100/AEC6CF/000000?text=Ginger+Garlic",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXZqYAHZ-XZ1-srshm5M-o8LNh9VdfScp2fA&s",
                         quantityPerServing: 0.1, // 0.1kg per 4 plates
                         brands: [
-                            { id: "ggp1", name: "Patanjali Ginger Garlic Paste", weight: "200g", price: 50, marketPrice: 65, rating: 4.3, reviews: 90, store: "Local Store", delivery: "30m", image: "https://placehold.co/100x100/AEC6CF/000000?text=GGP" }
+                            { id: "ggp1", name: "Patanjali Ginger Garlic Paste", weight: "200g", price: 50, marketPrice: 65, rating: 4.3, reviews: 90, store:"Supermarket", delivery: "2h", image:  "https://rukminim2.flixcart.com/image/704/844/kwgpz0w0/pickle-murabba/v/s/u/1000-garlic-pickle-500g-pack-of-2-2-plastic-bottle-pickle-original-imag94pgjsnwtdur.jpeg?q=90&crop=false" }
                         ]
                     },
                     {
                         id: "curd",
                         name: "Curd",
                         description: "Fresh plain curd",
-                        image: "https://placehold.co/100x100/AEC6CF/000000?text=Curd",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMrCVaouZl90wJ9N-hWvsNcGNl7aPc6Zxv9A&s",
                         quantityPerServing: 0.2, // 0.2kg per 4 plates
                         brands: [
-                            { id: "curd1", name: "Amul Dahi", weight: "400g", price: 40, marketPrice: 50, rating: 4.5, reviews: 110, store: "Dairy Shop", delivery: "1h", image: "https://placehold.co/100x100/AEC6CF/000000?text=Amul+Dahi" }
+                            { id: "curd1", name: "Amul Dahi", weight: "400g", price: 40, marketPrice: 50, rating: 4.5, reviews: 110, store: "Dairy Shop", delivery: "1h", image: "https://www.jiomart.com/images/product/original/494502732/amul-dahi-creamy-tasty-fresh-curd-800-g-product-images-o494502732-p610662657-1-202505192009.jpg?im=Resize=(1000,1000)" }
                         ]
                     }
                 ]
@@ -555,7 +534,7 @@
         }
 
         // Main render function to update the DOM based on current state
-        function renderApp() {
+        function renderApp() {CDATASection
             const appRoot = document.getElementById('app-root');
             if (!appRoot) {
                 console.error("App root element not found!");
@@ -568,8 +547,8 @@
             let headerContent = `
                 <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-40">
                     <div class="flex items-center space-x-2">
-                        <img src="https://placehold.co/40x40/6366F1/FFFFFF?text=S" alt="Sangraha Logo" class="rounded-full" />
-                        <h1 class="text-2xl font-bold text-indigo-700">Sangraha</h1>
+                        <img src="logoo.png" alt="Sangraha Logo" class="rounded-full" width=70px >
+                        <h1 class="text-3xl font-bold text-indigo-700 ">Sangraha</h1>
                     </div>
                     <nav class="flex items-center space-x-4">
                         ${appState.currentUser ? `
@@ -865,25 +844,52 @@
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                             <button id="quickSearchPanipuri" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
                                 <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-green-100 flex items-center justify-center">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/031b6a91-2d3a-437a-8a6c-9cba3a1fbc19.png" alt="Panipuri Snack" class="w-full h-full rounded-full object-cover">
+                                    <img src="https://spillthespices.com/wp-content/uploads/2020/09/panipuri1-500x375.jpg" alt="Panipuri" class="w-full h-full rounded-full object-cover">
                                 </div>
                                 <span class="text-sm font-medium text-gray-800">Panipuri</span>
                             </button>
                             <button id="quickSearchBiryani" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
                                 <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-yellow-100 flex items-center justify-center">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/29705d98-f809-408a-9859-539f967e5acb.png" alt="Chicken Biryani" class="w-full h-full rounded-full object-cover">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN6zjdUKp_LX8f8n0_tSQpNtB2lMhxg2uicA&s" class="w-full h-full rounded-full object-cover">
                                 </div>
                                 <span class="text-sm font-medium text-gray-800">Biryani</span>
                             </button>
                             <button id="quickSearchPasta" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
                                 <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-blue-100 flex items-center justify-center">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd9ae761-b041-4ade-8051-f03ae6508684.png" alt="Vegetable Pasta" class="w-full h-full rounded-full object-cover">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhFAnpG6cgmqfJ9texYqYRC7tn-bQs_PMmYA&s" alt="Vegetable Pasta" class="w-full h-full rounded-full object-cover">
                                 </div>
                                 <span class="text-sm font-medium text-gray-800">Pasta</span>
                             </button>
-                            <button id="quickSearchDessert" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
+                             <button id="quickSearchDahiPuri" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
                                 <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-red-100 flex items-center justify-center">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/188333ab-ea5f-484e-8da9-7e5b82a3e660.png" alt="Chocolate Dessert" class="w-full h-full rounded-full object-cover">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WVZ234U_VdcL1OYAbqkaQNXwP6wI_MGhDQ&s" alt="Dahi Puri" class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium text-gray-800">Dahi Puri</span>
+                            </button>
+                            <button id="quickSearchMomos" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
+                                <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-red-100 flex items-center justify-center">
+                                    <img src="https://www.cookforindia.com/wp-content/uploads/2016/02/Momos-snap.jpg" alt="Momos" class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium text-gray-800">Momos</span>
+                            </button>
+                            <button id="quickSearchVadaPaav" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
+                                <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-red-100 flex items-center justify-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXxHumSSh5ai6GNOjOjuoQUIZ-qM7lgSONsg&s" alt="Vada Paav" class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium text-gray-800">Vada Paav</span>
+                                <button id="quickSearchCholeBhature" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
+                                <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-red-100 flex items-center justify-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBfxC3_gPgiXyRF4CEoAtrF6Kp0DHra65GTQ&s" alt="CholeBhature" class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium text-gray-800">Chole Bhature</span>
+                                <button id="quickSearchidlisambar" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
+                                <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-red-100 flex items-center justify-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkLVi_FIIgQJZaSZapcUAUx_Q_UktEm1jRHA&s" alt="idlisambar" class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium text-gray-800">Idli Sambar and Dosa</span>
+                             <button id="quickSearchDessert" class="recipeQuickSearch bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition cursor-pointer text-center">
+                                <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-red-100 flex items-center justify-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA-J5sitHgHbOFbPfPTnq_ZmT1aVZcvAzGsA&s" alt="Chocolate Dessert" class="w-full h-full rounded-full object-cover">
                                 </div>
                                 <span class="text-sm font-medium text-gray-800">Dessert</span>
                             </button>
@@ -903,18 +909,7 @@
                                 <h1 class="text-3xl md:text-4xl font-bold mb-4">Smart shopping for smarter cooking</h1>
                                 <p class="mb-6">Get all ingredients for your favorite recipes at the best prices.</p>
                                 <div class="relative">
-                                <input
-  id="recipeSearch"
-  type="text"
-  value=""
-  autocomplete="off"
-  name="not-email-or-username"
-  inputmode="search"
-  autocapitalize="off"
-  spellcheck="false"
-  placeholder="Type what do you need to prepare?"
-  class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-/>
+                                <input id="recipeSearch" type="text"  value=""  autocomplete="off"  name="not-email-or-username"inputmode="search"  autocapitalize="off"  spellcheck="false" placeholder="Type what do you need to prepare?"class="w-full px-6 py-4 rounded-full bg-white bg-opacity-20 placeholder-white placeholder-opacity-80 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"/>
 
                                     <button id="searchRecipeBtn" class="absolute right-2 top-2 bg-white text-green-500 p-3 rounded-full hover:bg-gray-100 transition">
                                         <i class="fas fa-search"></i>
@@ -1125,7 +1120,7 @@
                     <div class="max-w-6xl mx-auto px-4 py-6">
                         <button
                             id="generateAI"
-                            class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition"
+                            class="bg-green-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition"
                         >
                             Generate AI Content
                         </button>
@@ -1200,12 +1195,22 @@
         if (document.getElementById('quickSearchPanipuri')) document.getElementById('quickSearchPanipuri').onclick = () => handleQuickSearch('panipuri');
         if (document.getElementById('quickSearchBiryani')) document.getElementById('quickSearchBiryani').onclick = () => handleQuickSearch('biryani');
         if (document.getElementById('quickSearchPasta')) document.getElementById('quickSearchPasta').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchDahiPuri')) document.getElementById('quickSearchDahiPuri').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchMomos')) document.getElementById('quickSearchMomos').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchVadapaav')) document.getElementById('quickSearchVadaPaav').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchCholeBature')) document.getElementById('quickSearchCholeBature').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchidlysambar')) document.getElementById('quickSearchidlysambar').onclick = () => showCustomModal('More recipes coming soon!', 'info');
         if (document.getElementById('quickSearchDessert')) document.getElementById('quickSearchDessert').onclick = () => showCustomModal('More recipes coming soon!', 'info');
 
         // For logged-in section quick search buttons (if they exist)
         if (document.getElementById('makeAgainPanipuri')) document.getElementById('makeAgainPanipuri').onclick = () => handleQuickSearch('panipuri');
         if (document.getElementById('quickSearchBiryani2')) document.getElementById('quickSearchBiryani2').onclick = () => handleQuickSearch('biryani');
         if (document.getElementById('quickSearchPasta2')) document.getElementById('quickSearchPasta2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchDahiPuri2')) document.getElementById('quickSearchDahiPuri2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchMomos2')) document.getElementById('quickSearchMomos2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchVadapaav2')) document.getElementById('quickSearchVadaPaav2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchCholeBature2')) document.getElementById('quickSearchCholeBature2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
+        if (document.getElementById('quickSearchidlysambar2')) document.getElementById('quickSearchidlysambar2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
         if (document.getElementById('quickSearchDessert2')) document.getElementById('quickSearchDessert2').onclick = () => showCustomModal('More recipes coming soon!', 'info');
 
 
