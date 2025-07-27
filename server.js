@@ -3,6 +3,10 @@ import express from 'express';
 import cors from 'cors';
 import { GoogleGenAI } from '@google/genai';
 
+app.get('/', (req, res) => {
+  res.send('Sangraha API is running!');
+});
+
 const app = express();
 app.use(cors());
 app.use(express.json());
