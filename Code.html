@@ -1424,44 +1424,59 @@
     const emailInput = document.getElementById('loginEmail');
     const passwordInput = document.getElementById('loginPassword');
     const email = emailInput ? emailInput.value : '';
-    const password = passwordInput ? passwordInput.value : ''; // <-- FIXED HERE
+    const password = passwordInput ? passwordInput.value : '';
 
     if (!email || !password) {
         showCustomModal("Please enter both email and password.", 'error');
         return;
     }
 
-         try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        userId = user.uid;
-        await fetchUserProfile(userId, db); // Fetch profile after successful login
-        hideAuthModal();
-        showCustomModal("Logged in successfully!", 'success');
-        navigateTo('home');
+    try {
+        // Try admin login first
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        const result = await response.json();
+        if (result.success && result.isAdmin) {
+            window.location.href = '/admin';
+            return;
+        }
+
+        // If not admin, fallback to Firebase Auth
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            userId = user.uid;
+            await fetchUserProfile(userId, db); // Fetch profile after successful login
+            hideAuthModal();
+            showCustomModal("Logged in successfully!", 'success');
+            navigateTo('home');
+        } catch (error) {
+            showCustomModal("Login failed. Please try again.", 'error');
+        }
     } catch (error) {
-        console.error("Login error:", error);
-        showCustomModal(`Login failed: ${error.message}`, 'error');
+        showCustomModal("Login failed. Please try again.", 'error');
     }
 }
-
-    async function handleSignup() {
+async function handleSignup() {
     const nameInput = document.getElementById('signupName');
     const emailInput = document.getElementById('signupEmail');
     const passwordInput = document.getElementById('signupPassword');
     const deliveryAddressInput = document.getElementById('deliveryAddressInput');
 
-    const name = nameInput ? nameInput.value : '';
-    const email = emailInput ? emailInput.value : '';
+    const name = nameInput ? nameInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
     const password = passwordInput ? passwordInput.value : '';
-    let address = deliveryAddressInput ? deliveryAddressInput.value : '';
+    let address = deliveryAddressInput ? deliveryAddressInput.value.trim() : '';
 
     if (!name || !email || !password || (!appState.locationEnabled && !address)) {
         showCustomModal("Please fill in all required fields (name, email, password, and delivery address).", 'error');
         return;
     }
 
-        if (appState.locationEnabled) {
+    if (appState.locationEnabled) {
         address = appState.deliveryAddress; // Use GPS detected address
     }
 
